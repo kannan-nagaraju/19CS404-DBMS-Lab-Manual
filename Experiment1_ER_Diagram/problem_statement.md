@@ -45,28 +45,39 @@ Design a database for patient management, appointments, medical records, and bil
    - Why you chose the entities and relationships.
    - How you modeled prerequisites or billing.
 
-# ER Diagram Submission - Student Name
+# ER Diagram Submission - Student Name : PRASHANTH K
 
 ## Scenario Chosen:
-University / Hospital (choose one)
+University
 
 ## ER Diagram:
-![ER Diagram](er_diagram.png)
+![image](https://github.com/user-attachments/assets/9ca136ee-9ae6-4918-b091-ed9d5f908241)
+
 
 ## Entities and Attributes:
-- Entity1: Attributes
-- Entity2: Attributes
-...
+
+Department: Dept ID, Dept Name
+Student: Reg. No, Name, Date of Birth, Phone No, Email, Program Name, Dept Name
+Course: Course ID, Course Name, Program Name, Credits, Lab/Theory
+Professor: Teacher ID, Name, Phone No, Course ID
+Prerequisite: Prerequisite Course ID, Prerequisite Course Name, Course ID
+
 
 ## Relationships and Constraints:
-- Relationship1 (Cardinality, Participation)
-- Relationship2 (Cardinality, Participation)
-...
 
-## Extension (Prerequisite / Billing):
-- Explain how you modeled prerequisites or billing.
+Admission (Department–Student): (1:M, Total–Total)
+Enrollment (Student–Course): (M:M, Total–Total)
+Taught by (Course–Professor): (1:M, Total–Total)
+Before Enrollment (Course–Prerequisite): (1:M, Partial–Total)
+
+## Extension (Prerequisite):
+
+In the ER diagram, prerequisites are modeled using a separate entity named **Prerequisite**. This entity contains attributes such as *Prerequisite Course ID*, *Prerequisite Course Name*, and *Course ID*, which links it to the main course. The relationship between **Course** and **Prerequisite** is named **Before Enrollment** and follows a one-to-many (1\:M) cardinality. This means a single course can have multiple prerequisites, but each prerequisite entry is tied to only one course. This design allows flexibility in assigning and managing prerequisites without cluttering the Course entity. It also ensures data consistency and simplifies prerequisite tracking. Total participation exists from the Prerequisite side, while Course has partial participation.
+
 
 ## Design Choices:
-Brief explanation of why you chose certain entities, relationships, and assumptions
+
+Entities like **Student**, **Course**, **Department**, and **Professor** were chosen to represent key academic elements. Relationships such as **Enrollment** and **Taught by** show real-world interactions. **Prerequisite** was modeled separately to handle multiple prerequisites per course. A many-to-many relationship was used for enrollment to reflect real scenarios. We assumed each student belongs to a department, and not all courses need prerequisites. These choices ensure a clear, flexible, and normalized design.
 
 ## RESULT
+Thus, the ER Diagram for university databse is developed successfully.
